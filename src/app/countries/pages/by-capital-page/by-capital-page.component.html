@@ -1,0 +1,30 @@
+<h2>By capital</h2>
+<hr>
+
+<!-- (onValue)="searchByCapital($event)" -->
+<div class="row">
+	<div class="col">
+    <!-- Search box -->
+    <shared-c-search-box
+    (onDebounce)="searchByCapital($event)"
+    [initialValue]="initialTerm"
+    searchBoxPlaceholder="Search by capital"
+    ></shared-c-search-box>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+    <!-- Tabla -->
+    <hr>
+    <!-- <ul class="list-group">
+      <li *ngFor="let country of countries"
+      class="list-group-item"
+      >
+        {{ country.capital }}
+      </li>
+    </ul> -->
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+    <countries-country-table [countries]="countries"></countries-country-table>
+	</div>
+</div>

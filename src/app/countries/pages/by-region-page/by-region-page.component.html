@@ -1,0 +1,44 @@
+<h2>By country</h2>
+<hr>
+
+<div class="row">
+	<div class="col">
+    <!-- Search box -->
+    <!-- <shared-c-search-box
+    (onDebounce)="searchByRegionPage($event)"
+    searchBoxPlaceholder="Search by region"
+    ></shared-c-search-box> -->
+    <!-- <select name="regions" id="regions" class="form-select"
+    >
+    <option value="" selected >Elegi una region</option>
+    <option
+    *ngFor="let region of regiones"
+    [value]="region"
+    (click)="searchByRegionPage(region)"
+    #regionSelect>{{region}}</option>
+
+  </select> -->
+  <button *ngFor="let region of regiones"
+  class="btn mx-2"
+  [ngClass]="{ 'btn-primary' : selectedRegion === region }"
+  (click)="searchByRegionPage(region)">
+    {{region}}
+  </button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+    <!-- Tabla -->
+    <hr>
+    <!-- <ul class="list-group">
+      <li *ngFor="let country of countries"
+      class="list-group-item"
+      >
+        {{ country.capital }}
+      </li>
+    </ul> -->
+    <countries-country-table [countries]="regions"></countries-country-table>
+	</div>
+</div>
+
